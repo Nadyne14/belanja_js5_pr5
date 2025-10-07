@@ -1,4 +1,4 @@
-# belanja_js5_pr5
+# belanja_js5_pr5 JS 5 Bagian Praktikum 5
 
 # Laporan Praktikum Flutter 2_Praktikum 5 dan Tugas 2
 **Nama:** Nadyne Rosalia Noer Azizah  
