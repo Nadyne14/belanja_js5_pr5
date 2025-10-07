@@ -1,16 +1,46 @@
 # belanja_js5_pr5
 
-A new Flutter project.
+# Laporan Praktikum Flutter 2_Praktikum 5 dan Tugas 2
+**Nama:** Nadyne Rosalia Noer Azizah  
+**NIM:** 2341760142  
+**Kelas:** SIB-3F   
+**Mata Kuliah:** Pemrograman Mobile  
+**Dosen Pengampu:** Ade Ismail S.Kom., M.TI  
+**Prodi:** D-IV Sistem Informasi Bisnis 
 
-## Getting Started
+## Praktikum 5: Navigasi dan Modularisasi Aplikasi Belanja Flutter
 
-This project is a starting point for a Flutter application.
+**Note:**
+Pada praktikum ini dibuat aplikasi Flutter sederhana bertema "Aplikasi Belanja Buah Segar" 🍏 dengan konsep navigasi antar halaman dan modularisasi kode.
 
-A few resources to get you started if this is your first Flutter project:
+**Aplikasi terdiri dari:**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Halaman utama (HomePage) menampilkan daftar buah dalam bentuk list vertikal.
+2. Halaman detail (ItemPage) menampilkan gambar besar, harga, stok, dan rating buah yang dipilih.
+3. Navigasi antar halaman dilakukan menggunakan go_router.
+4. Widget dipecah menjadi bagian kecil seperti:
+    a. ItemCard → menampilkan tampilan kartu buah.
+    b. Footer → menampilkan identitas pengembang (Nama & NIM).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Selain itu, desain aplikasi dimodifikasi dengan tema warna hijau segar untuk menampilkan nuansa marketplace modern.
+
+- tampilan halaman awal.
+![Screenshoot](assets/01.png)
+
+- tampilan halaman kedua setelah di klik.
+![Screenshoot](assets/02.png)
+
+# Tugas praktikum 2
+
+**Point No 5**
+
+Sesuaikan dan modifikasi tampilan sehingga menjadi aplikasi yang menarik. Selain itu, pecah widget menjadi kode yang lebih kecil. Tambahkan Nama dan NIM di footer aplikasi belanja Anda.
+![Screenshoot](assets/03.png)
+
+**Point No 6**
+Implementasi Navigasi dengan go_router
+
+**Note:**
+Pada tugas praktikum ini, dilakukan modifikasi navigasi aplikasi Flutter menggunakan plugin go_router untuk menggantikan sistem routing manual berbasis Navigator.pushNamed().
+Dengan go_router, proses navigasi menjadi lebih declarative, mudah dibaca, dan mendukung pengiriman data antar halaman secara langsung melalui parameter extra.
+![Screenshoot](assets/04.png)
