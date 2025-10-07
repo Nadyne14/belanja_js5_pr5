@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../models/item.dart';
 
 class ItemCard extends StatelessWidget {
   final Item item;
-  final VoidCallback onTap;
 
-  const ItemCard({Key? key, required this.item, required this.onTap})
-      : super(key: key);
+  const ItemCard({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,9 @@ class ItemCard extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
         splashColor: Colors.green.shade100,
-        onTap: onTap,
+        onTap: () {
+          context.push('/item', extra: item); // ✅ Navigasi pakai go_router
+        },
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Row(

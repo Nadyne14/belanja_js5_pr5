@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: const Color(0xFF388E3C),
         elevation: 3,
         title: const Text(
-          'Daftar Buah Segar',
+          'Daftar Buah Segar ',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -30,14 +30,9 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         children: [
           ...items.map(
-            (item) => ItemCard(
-              item: item,
-              onTap: () {
-                Navigator.pushNamed(context, '/item', arguments: item);
-              },
-            ),
+            (item) => ItemCard(item: item), 
           ),
-          const Footer(), // ✅ Tambahkan footer di bawah daftar buah
+          const Footer(), 
         ],
       ),
     );
