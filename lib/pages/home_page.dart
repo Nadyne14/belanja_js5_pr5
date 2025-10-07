@@ -46,15 +46,18 @@ class HomePage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(item.name,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 18)),
+                          Text(
+                            item.name,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
                           const SizedBox(height: 6),
-                          Text('Rp ${item.price}',
-                              style: const TextStyle(fontSize: 15)),
-                          const SizedBox(height: 6),
-                          Text('Stok: ${item.stock}'),
-                          Text('Rating: ${item.rating}'),
+                          Text(
+                            'Rp ${item.price}',
+                            style: const TextStyle(fontSize: 15),
+                          ),
                         ],
                       ),
                     ),
