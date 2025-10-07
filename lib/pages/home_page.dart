@@ -11,12 +11,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F5FA), // 🌸 background lembut
+      backgroundColor: const Color(0xFFA8E6CF), // 🌿 hijau muda lembut
       appBar: AppBar(
-        backgroundColor: const Color(0xFF8E7AB5), // 💜 ungu pastel
-        elevation: 4,
+        backgroundColor: const Color(0xFF388E3C), // 💚 hijau tua segar
+        elevation: 3,
         title: const Text(
-          'Daftar Buah',
+          'Daftar Buah Segar 🍎',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -25,24 +25,24 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView.builder(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(10),
         itemCount: items.length,
         itemBuilder: (context, index) {
           final item = items[index];
           return Card(
             color: Colors.white,
             elevation: 5,
-            shadowColor: Colors.deepPurple.shade100,
+            shadowColor: Colors.green.shade100,
             margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             child: InkWell(
               borderRadius: BorderRadius.circular(16),
-              splashColor: Colors.purple.shade100,
+              splashColor: Colors.green.shade100,
               onTap: () {
                 Navigator.pushNamed(context, '/item', arguments: item);
               },
               child: Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(12),
                 child: Row(
                   children: [
                     Hero(
@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
-                              color: Color(0xFF4A3F69), // 💜 teks ungu gelap
+                              color: Color(0xFF1B5E20), // 🌿 hijau daun tua
                             ),
                           ),
                           const SizedBox(height: 6),
@@ -75,15 +75,15 @@ class HomePage extends StatelessWidget {
                             'Rp ${item.price}',
                             style: TextStyle(
                               fontSize: 16,
-                              color: Colors.deepPurple.shade400,
                               fontWeight: FontWeight.w500,
+                              color: Colors.green.shade700,
                             ),
                           ),
                         ],
                       ),
                     ),
                     const Icon(Icons.chevron_right_rounded,
-                        color: Color(0xFF8E7AB5), size: 28),
+                        color: Color(0xFF66BB6A), size: 28),
                   ],
                 ),
               ),

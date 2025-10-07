@@ -7,9 +7,9 @@ class ItemPage extends StatelessWidget {
     final item = ModalRoute.of(context)!.settings.arguments as Item;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F5FA),
+      backgroundColor: const Color(0xFFA8E6CF),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF8E7AB5),
+        backgroundColor: const Color(0xFF388E3C),
         title: Text(item.name, style: const TextStyle(color: Colors.white)),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
@@ -27,6 +27,7 @@ class ItemPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(20),
             child: Card(
+              color: Colors.white,
               elevation: 3,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
               child: Padding(
@@ -39,18 +40,22 @@ class ItemPage extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF4A3F69),
+                        color: Color(0xFF1B5E20),
                       ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       'Harga: Rp ${item.price}',
-                      style: const TextStyle(fontSize: 18, color: Colors.black87),
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.green.shade800,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     const SizedBox(height: 12),
                     Row(
                       children: [
-                        const Icon(Icons.inventory_2, color: Colors.deepPurple),
+                        const Icon(Icons.inventory_2, color: Colors.green),
                         const SizedBox(width: 8),
                         Text('Stok: ${item.stock}'),
                       ],
@@ -63,11 +68,11 @@ class ItemPage extends StatelessWidget {
                         Text('Rating: ${item.rating}'),
                       ],
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 20),
                     Center(
                       child: ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF8E7AB5),
+                          backgroundColor: const Color(0xFF388E3C),
                           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
@@ -80,7 +85,7 @@ class ItemPage extends StatelessWidget {
                         ),
                         onPressed: () {},
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
