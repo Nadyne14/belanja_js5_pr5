@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/item.dart';
+import '../widgets/item_card.dart';
+import '../widgets/footer.dart';
 
 class HomePage extends StatelessWidget {
   final List<Item> items = [
@@ -11,12 +13,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFA8E6CF), // 🌿 hijau muda lembut
+      backgroundColor: const Color(0xFFA8E6CF),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF388E3C), // 💚 hijau tua segar
+        backgroundColor: const Color(0xFF388E3C),
         elevation: 3,
         title: const Text(
-          'Daftar Buah Segar 🍎',
+          'Daftar Buah Segar',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -24,72 +26,19 @@ class HomePage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: ListView.builder(
+      body: ListView(
         padding: const EdgeInsets.all(10),
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          final item = items[index];
-          return Card(
-            color: Colors.white,
-            elevation: 5,
-            shadowColor: Colors.green.shade100,
-            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            child: InkWell(
-              borderRadius: BorderRadius.circular(16),
-              splashColor: Colors.green.shade100,
+        children: [
+          ...items.map(
+            (item) => ItemCard(
+              item: item,
               onTap: () {
                 Navigator.pushNamed(context, '/item', arguments: item);
               },
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Row(
-                  children: [
-                    Hero(
-                      tag: item.name,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          item.image,
-                          height: 90,
-                          width: 90,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            item.name,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Color(0xFF1B5E20), // 🌿 hijau daun tua
-                            ),
-                          ),
-                          const SizedBox(height: 6),
-                          Text(
-                            'Rp ${item.price}',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.green.shade700,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Icon(Icons.chevron_right_rounded,
-                        color: Color(0xFF66BB6A), size: 28),
-                  ],
-                ),
-              ),
             ),
-          );
-        },
+          ),
+          const Footer(), // ✅ Tambahkan footer di bawah daftar buah
+        ],
       ),
     );
   }
