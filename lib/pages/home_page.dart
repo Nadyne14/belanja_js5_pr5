@@ -12,48 +12,58 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Daftar Buah')),
-      body: GridView.count(
-        crossAxisCount: 2,
-        childAspectRatio: 0.8,
-        children: List.generate(items.length, (index) {
+      body: ListView.builder(
+        padding: const EdgeInsets.all(8),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
           final item = items[index];
           return Card(
             elevation: 3,
-            margin: const EdgeInsets.all(8),
+            margin: const EdgeInsets.symmetric(vertical: 8),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             child: InkWell(
               borderRadius: BorderRadius.circular(12),
               onTap: () {
                 Navigator.pushNamed(context, '/item', arguments: item);
               },
-              child: Column(
+              child: Row(
                 children: [
                   Hero(
                     tag: item.name,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                      borderRadius: const BorderRadius.horizontal(left: Radius.circular(12)),
                       child: Image.asset(
                         item.image,
-                        height: 100,          // 👈 kecilin ukuran gambar di sini
+                        height: 100,
                         width: 100,
-                        fit: BoxFit.contain,  // biar gambar nggak kepotong
+                        fit: BoxFit.contain,
                       ),
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  Text(
-                    item.name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(item.name,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 18)),
+                          const SizedBox(height: 6),
+                          Text('Rp ${item.price}',
+                              style: const TextStyle(fontSize: 15)),
+                          const SizedBox(height: 6),
+                          Text('Stok: ${item.stock}'),
+                          Text('Rating: ${item.rating}'),
+                        ],
+                      ),
                     ),
                   ),
-                  Text('Rp ${item.price}'),
                 ],
               ),
             ),
           );
-        }),
+        },
       ),
     );
   }
