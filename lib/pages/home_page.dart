@@ -14,33 +14,41 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(title: Text('Daftar Buah')),
       body: GridView.count(
         crossAxisCount: 2,
-        childAspectRatio: 3 / 4,
+        childAspectRatio: 0.8,
         children: List.generate(items.length, (index) {
           final item = items[index];
           return Card(
+            elevation: 3,
+            margin: const EdgeInsets.all(8),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             child: InkWell(
+              borderRadius: BorderRadius.circular(12),
               onTap: () {
                 Navigator.pushNamed(context, '/item', arguments: item);
               },
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(
-                    child: Hero(
-                      tag: item.name,
-                      child: Image.asset(item.image, fit: BoxFit.cover),
+                  Hero(
+                    tag: item.name,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                      child: Image.asset(
+                        item.image,
+                        height: 100,          // 👈 kecilin ukuran gambar di sini
+                        width: 100,
+                        fit: BoxFit.contain,  // biar gambar nggak kepotong
+                      ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(item.name, style: TextStyle(fontWeight: FontWeight.bold)),
-                        Text('Rp ${item.price}'),
-                      ],
+                  const SizedBox(height: 8),
+                  Text(
+                    item.name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
+                  Text('Rp ${item.price}'),
                 ],
               ),
             ),
